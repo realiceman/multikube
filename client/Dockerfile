@@ -4,6 +4,7 @@ WORKDIR '/app'
 # because if we make a change in app.js it will only make COPY . . and not the steps before 
 # the only time npm install will be played it is when some changes occur in package.json
 COPY ./package.json ./
+RUN npm install -g npm@6.14.11 
 RUN npm install
 COPY . .
 RUN npm run build
