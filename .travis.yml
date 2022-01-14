@@ -12,8 +12,8 @@ before_install:
   - gcloud components update kubectl 
   - gcloud auth activate-service-account -key-file service-account.json 
   - gcloud config set project testkubernetesyh
-  - gcloud config set compute/zone us-central1-a
-  - gcloud container clusters get-credentials mk-cluster 
+  - gcloud config set compute/zone us-central1-c 
+  - gcloud container clusters get-credentials mkcluster 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build youssefh/react-test -f ./client/Dockerfile.dev ./client
 
@@ -25,6 +25,3 @@ deploy:
   script: bash ./deploy.sh
   on:
     branch: master
-
-
-#docker run -it -v $(pwd):/app ruby:2.4 sh
