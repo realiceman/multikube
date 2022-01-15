@@ -17,3 +17,4 @@ spec:
           image: youssefh/multi-client
           ports:
             - containerPort: 3000
+          imagePullPolicy: Always
